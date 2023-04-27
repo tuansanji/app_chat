@@ -1,0 +1,65 @@
+:root {
+  --blue-color: #2374e1;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+}
+html {
+  font-size: 62.5%;
+  scroll-behavior: smooth;
+}
+body {
+  box-sizing: border-box;
+}
+.slick-initialized {
+  .slick-slide {
+    padding-right: 20px;
+  }
+}
+//css thanh scrollbar
+#main_content,
+.main_list_comment {
+  &::-webkit-scrollbar {
+    width: 4px;
+    background-color: #777;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #333;
+  }
+  &::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+    background-color: #777;
+  }
+}
+//css the a active
+.nav {
+  a {
+    position: relative;
+    &::after {
+      content: "";
+      position: absolute;
+      height: 5px;
+      width: 0;
+      bottom: 0;
+      background-color: var(--blue-color);
+      transition: all 0.5s ease-in-out;
+      left: 0;
+    }
+    &:hover::after {
+      width: 50%;
+      transform: translateX(100%);
+    }
+  }
+  a.active {
+    &::after {
+      width: 100%;
+    }
+    &:hover::after {
+      width: 100%;
+      transform: translateX(0);
+    }
+  }
+}
